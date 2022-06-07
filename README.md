@@ -1,4 +1,4 @@
-# Simle form table
+# Simple form table
 
 ## Description
 React web app, Data table, you can add and remove data. code in Typescript.
