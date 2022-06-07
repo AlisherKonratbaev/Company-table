@@ -1,6 +1,29 @@
+.main-table {
+    margin-top: 50px;
+}
+.main-table_content {
+    margin-top: 50px;
+}
+.modal-form input{
+    margin-left: 40px;
+    width: 250px;
+    padding: 5px 10px;
+}
 
-.container{
-    max-width: 1366px;
-    margin: 0 auto;
-    padding: 0 20px;
+.modal-form label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.error-message{
+    width: 270px;
+    margin-left: auto;
+    color: #f6685e;
+    margin-top: 2px;
+}
+.modal-action_wrap{
+    margin-left:auto;
+    margin-top:25px;
 }

@@ -1,9 +1,18 @@
-import MainTable from "./MainTable";
+import {Container} from "@mui/material";
+import Modals from "./modals/Modals";
+import TableContent from "./TableContent";
 
 
 function App() {
   return (
-        <MainTable />
+      <Container maxWidth="lg">
+          <section className="main-table">
+              <Modals />
+              <div className="main-table_content">
+                  <TableContent/>
+              </div>
+          </section>
+      </Container>
   );
 }
 

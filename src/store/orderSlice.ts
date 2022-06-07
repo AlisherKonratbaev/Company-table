@@ -1,38 +1,54 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {IOrder} from "../types";
 
-type Order = {
-    id: string,
-    title: string,
-    completed: boolean,
-}
 type OrderState = {
-    list: Order[],
+    list: IOrder[],
 }
-const initialState:OrderState = {
-    list: [],
+const initialState: OrderState = {
+    list: [{
+        id: "1",
+        company: "company",
+        name: "name",
+        additional: "additional",
+        street: "street",
+        postalCode: "23",
+        country: "country",
+        IBan: "IBan",
+        BIC: "BIC",
+        bankName: "bankName",
+        fax: "fax",
+        email: "email",
+        birthday: "birthday",
+    }],
 }
 
 const orderSlice = createSlice({
     name: 'order',
     initialState,
     reducers: {
-        addOrder(state, action:PayloadAction<string>) {
+        addOrder(state, action: PayloadAction<IOrder>) {
             state.list.push({
-                id: new Date().toString(),
-                title: action.payload,
-                completed: false,
+                id: action.payload.id,
+                company: action.payload.company,
+                name: action.payload.name,
+                additional: action.payload.additional,
+                street: action.payload.street,
+                postalCode: action.payload.postalCode,
+                country: action.payload.country,
+                IBan: action.payload.IBan,
+                BIC: action.payload.BIC,
+                bankName: action.payload.bankName,
+                fax: action.payload.fax,
+                email: action.payload.email,
+                birthday: action.payload.birthday,
             });
         },
-        // toggleComplete(state, action: PayloadAction<string>) {
-        //     const toggledTodo = state.list.find(todo => todo.id === action.payload);
-        //     if(toggledTodo) toggledTodo.completed = !toggledTodo.completed;
-        // },
-        // removeTodo(state, action: PayloadAction<string>) {
-        //     state.list = state.list.filter(todo => todo.id !== action.payload);
-        // }
+        removeOrder(state, action: PayloadAction<string>) {
+            state.list = state.list.filter(order => order.id !== action.payload);
+        }
     },
 });
 
-export const {addOrder, } = orderSlice.actions;
+export const {addOrder, removeOrder} = orderSlice.actions;
 
 export default orderSlice.reducer;
